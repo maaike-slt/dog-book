@@ -1,37 +1,73 @@
-<div align=center>
+# React + TypeScript + Vite
 
-# ❄️ nix-template-deno 🦖
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-[![Javascript](https://img.shields.io/badge/Made_for-javascript-yellow.svg?logo=javascript&style=for-the-badge)](https://www.javascript.com/)
-[![NixOS](https://img.shields.io/badge/Flakes-Nix-informational.svg?logo=nixos&style=for-the-badge)](https://nixos.org)
-![License](https://img.shields.io/github/license/mordragt/nix-templates?style=for-the-badge)
+Currently, two official plugins are available:
 
-Minimal **Deno** development template for **Nix**
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-</div>
+## React Compiler
 
-## About
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-This is a minimal template for JavasScript development with Deno.
+## Expanding the ESLint configuration
 
-## Initialization
+If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
-See the parent README for further instructions, but you can initialize this template with the
-following command in your current directory.
+```js
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
 
-```bash
-nix flake init -t github:MordragT/nix-templates#deno
+      // Remove tseslint.configs.recommended and replace with this
+      tseslint.configs.recommendedTypeChecked,
+      // Alternatively, use this for stricter rules
+      tseslint.configs.strictTypeChecked,
+      // Optionally, add this for stylistic rules
+      tseslint.configs.stylisticTypeChecked,
+
+      // Other configs...
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
 ```
 
-## Usage
+You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
-- `nix develop`: opens up a `bash` shell with the required packages
-- `nix build` : builds the Deno project.
-- `nix run`: runs the Deno program.
+```js
+// eslint.config.js
+import reactX from 'eslint-plugin-react-x'
+import reactDom from 'eslint-plugin-react-dom'
 
-## Reference
-
-1. [wiki/Flakes](https://nixos.wiki/wiki/Flakes)
-2. [Deno](https://deno.land/) - used as JS and TS runtime
-3. [Deno2Nix](https://github.com/SnO2WMaN/deno2nix) - used to convert Deno projects into Nix
-   derivations
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
+      // Enable lint rules for React
+      reactX.configs['recommended-typescript'],
+      // Enable lint rules for React DOM
+      reactDom.configs.recommended,
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
+```
