@@ -3,14 +3,6 @@
 		"dev": "deno run -A npm:vite",
 		"build": "deno run -A npm:vite build"
 	},
-	"fmt": {
-		"useTabs": true,
-		"indentWidth": 4,
-		"lineWidth": 80,
-		"singleQuote": false,
-		"semiColons": false,
-		"proseWrap": "preserve"
-	},
 	"imports": {
 		"@supabase/supabase-js": "jsr:@supabase/supabase-js@^2.58.0",
 		"@types/react": "npm:@types/react@^19.2.2",
@@ -19,6 +11,36 @@
 		"react": "npm:react@^19.2.0",
 		"react-dom": "npm:react-dom@^19.2.0",
 		"vite": "npm:vite@^7.1.9"
+	},
+	"lint": {
+		"rules": {
+			"tags": [
+				"recommended",
+				"react"
+			],
+			"include": [
+				"camelcase",
+				"eqeqeq",
+				"explicit-function-return-type",
+				"explicit-module-boundary-types",
+				"no-console",
+				"no-const-assign",
+				"no-self-compare",
+				"no-sparse-arrays",
+				"no-sync-fn-in-async-fn",
+				"no-useless-rename",
+				"prefer-ascii",
+				"single-var-declarator"
+			]
+		}
+	},
+	"fmt": {
+		"useTabs": true,
+		"indentWidth": 4,
+		"lineWidth": 80,
+		"singleQuote": false,
+		"semiColons": false,
+		"proseWrap": "preserve"
 	},
 	"nodeModulesDir": "auto",
 	"compilerOptions": {
