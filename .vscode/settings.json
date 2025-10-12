@@ -1,4 +1,6 @@
 {
+	"deno.enable": true,
+	"deno.lint": true,
 	"[typescript][typescriptreact][css][json][jsonc][yaml]": {
 		"editor.defaultFormatter": "denoland.vscode-deno"
 	}
