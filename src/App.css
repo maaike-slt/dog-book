@@ -13,3 +13,11 @@
 	height: 60vh;
 	width: 60vh;
 }
+
+.main-title {
+	background-color: lightblue;
+	font-size: 3rem;
+	font-style: inherit;
+	position: absolute;
+	top: 0;
+}
