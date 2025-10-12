@@ -27,7 +27,10 @@
 		><stop offset="0%" stop-color="#FFEA83"></stop><stop
 				offset="8.333%"
 				stop-color="#FFDD35"
-			></stop><stop offset="100%" stop-color="#FFA800"></stop></linearGradient></defs><path
+			></stop><stop
+				offset="100%"
+				stop-color="#FFA800"
+			></stop></linearGradient></defs><path
 		fill="url(#IconifyId1813088fe1fbc01fb466)"
 		d="M255.153 37.938L134.897 252.976c-2.483 4.44-8.862 4.466-11.382.048L.875 37.958c-2.746-4.814 1.371-10.646 6.827-9.67l120.385 21.517a6.537 6.537 0 0 0 2.322-.004l117.867-21.483c5.438-.991 9.574 4.796 6.877 9.62Z"
 	></path><path
