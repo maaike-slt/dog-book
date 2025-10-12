@@ -1,6 +1,9 @@
 # secret
 .env
 
+# vite
+.vite/
+
 # Logs
 logs
 *.log

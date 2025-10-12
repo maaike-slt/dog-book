@@ -1,20 +1,41 @@
 {
-	"importMap": "./import_map.json",
 	"tasks": {
-		"run": "deno run ./src/index.ts",
-		"compile": "deno compile ./src/index.ts"
+		"dev": "deno run -A npm:vite & deno run server:start",
+		"build": "deno run -A npm:vite build",
+		"server:start": "deno run -A --watch ./api/main.ts",
+		"serve": "deno run build && deno run server:start"
 	},
 	"fmt": {
-		"options": {
-			"lineWidth": 100,
-			"indentWidth": 4,
-			"singleQuote": false,
-			"useTabs": true
-		},
-		"files": {
-			"exclude": [
-				"./lock.json"
-			]
-		}
+		"useTabs": true,
+		"indentWidth": 4,
+		"lineWidth": 80,
+		"singleQuote": false,
+		"semiColons": false,
+
+		"proseWrap": "preserve"
+	},
+	"imports": {
+		"@supabase/supabase-js": "jsr:@supabase/supabase-js@^2.58.0",
+		"@types/react": "npm:@types/react@^19.2.2",
+		"@vitejs/plugin-react": "npm:@vitejs/plugin-react@^5.0.4",
+		"esbuild": "npm:esbuild@^0.25.10",
+		"react": "npm:react@^19.2.0",
+		"react-dom": "npm:react-dom@^19.2.0",
+		"vite": "npm:vite@^7.1.9"
+	},
+	"nodeModulesDir": "auto",
+	"compilerOptions": {
+		"types": [
+			"react",
+			"react-dom",
+			"@types/react"
+		],
+		"lib": [
+			"dom",
+			"dom.iterable",
+			"deno.ns"
+		],
+		"jsx": "react-jsx",
+		"jsxImportSource": "react"
 	}
 }
