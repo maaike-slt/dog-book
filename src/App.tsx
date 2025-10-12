@@ -1,13 +1,14 @@
 import { JSX } from "react"
 import "./App.css"
 
-function App(): JSX.Element {
+function App(): JSX.Element
+{
 	return (
 		<div className="main-container">
-			<div className="dog-image">
-			</div>
-			<div className="dog-image">
-			</div>
+			<button type='button' className="dog-image">
+			</button>
+			<button type='button' className="dog-image">
+			</button>
 		</div>
 	)
 }
