@@ -1,4 +1,4 @@
-import "./App.css";
+import "./App.css"
 
 function App() {
 	return (
@@ -8,7 +8,7 @@ function App() {
 			<div className="dog-image">
 			</div>
 		</div>
-	);
+	)
 }
 
 export default App
