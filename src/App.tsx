@@ -1,4 +1,4 @@
-import { JSX, useEffect, useState } from "react"
+import { type JSX, useEffect, useState } from "react"
 import "./App.css"
 import getNewVote from "./query/get_new_vote.ts"
 

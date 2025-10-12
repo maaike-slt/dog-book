@@ -23,7 +23,6 @@
 			"include": [
 				"camelcase",
 				"eqeqeq",
-				"explicit-function-return-type",
 				"explicit-module-boundary-types",
 				"no-console",
 				"no-const-assign",
