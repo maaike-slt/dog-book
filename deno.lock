@@ -1,13 +1,11 @@
 {
   "version": "5",
   "specifiers": {
-    "jsr:@supabase/supabase-js@^2.58.0": "2.58.0",
-    "npm:@supabase/auth-js@2.72.0": "2.72.0",
-    "npm:@supabase/functions-js@2.5.0": "2.5.0",
-    "npm:@supabase/node-fetch@2.6.15": "2.6.15",
-    "npm:@supabase/postgrest-js@1.21.4": "1.21.4",
-    "npm:@supabase/realtime-js@2.15.5": "2.15.5",
-    "npm:@supabase/storage-js@2.12.2": "2.12.2",
+    "jsr:@std/assert@^1.0.15": "1.0.15",
+    "jsr:@std/internal@^1.0.12": "1.0.12",
+    "jsr:@std/random@~0.1.3": "0.1.3",
+    "npm:@deno/vite-plugin@^1.0.5": "1.0.5_vite@7.1.9__picomatch@4.0.3",
+    "npm:@supabase/supabase-js@^2.58.0": "2.75.0",
     "npm:@types/react@^19.2.2": "19.2.2",
     "npm:@vitejs/plugin-react@^5.0.4": "5.0.4_vite@7.1.9__picomatch@4.0.3_@babel+core@7.28.4",
     "npm:esbuild@~0.25.10": "0.25.10",
@@ -18,16 +16,17 @@
     "npm:vite@^7.1.9": "7.1.9_picomatch@4.0.3"
   },
   "jsr": {
-    "@supabase/supabase-js@2.58.0": {
-      "integrity": "4d04e72e9f632b451ac7d1a84de0b85249c0097fdf06253f371c1f0a23e62c87",
+    "@std/assert@1.0.15": {
+      "integrity": "d64018e951dbdfab9777335ecdb000c0b4e3df036984083be219ce5941e4703b",
       "dependencies": [
-        "npm:@supabase/auth-js",
-        "npm:@supabase/functions-js",
-        "npm:@supabase/node-fetch",
-        "npm:@supabase/postgrest-js",
-        "npm:@supabase/realtime-js",
-        "npm:@supabase/storage-js"
+        "jsr:@std/internal"
       ]
+    },
+    "@std/internal@1.0.12": {
+      "integrity": "972a634fd5bc34b242024402972cd5143eac68d8dffaca5eaa4dba30ce17b027"
+    },
+    "@std/random@0.1.3": {
+      "integrity": "a688ffde2d883be70fdebe87ff295fb043f5c3d75f549505a8cc53776f3d0b71"
     }
   },
   "npm": {
@@ -166,6 +165,12 @@
       "dependencies": [
         "@babel/helper-string-parser",
         "@babel/helper-validator-identifier"
+      ]
+    },
+    "@deno/vite-plugin@1.0.5_vite@7.1.9__picomatch@4.0.3": {
+      "integrity": "sha512-tLja5n4dyMhcze1NzvSs2iiriBymfBlDCZIrjMTxb9O2ru0gvmV6mn5oBD2teNw5Sd92cj3YJzKwsAs8tMJXlg==",
+      "dependencies": [
+        "vite"
       ]
     },
     "@esbuild/aix-ppc64@0.25.10": {
@@ -438,14 +443,14 @@
       "os": ["win32"],
       "cpu": ["x64"]
     },
-    "@supabase/auth-js@2.72.0": {
-      "integrity": "sha512-4+bnUrtTDK1YD0/FCx2YtMiQH5FGu9Jlf4IQi5kcqRwRwqp2ey39V61nHNdH86jm3DIzz0aZKiWfTW8qXk1swQ==",
+    "@supabase/auth-js@2.75.0": {
+      "integrity": "sha512-J8TkeqCOMCV4KwGKVoxmEBuDdHRwoInML2vJilthOo7awVCro2SM+tOcpljORwuBQ1vHUtV62Leit+5wlxrNtw==",
       "dependencies": [
         "@supabase/node-fetch"
       ]
     },
-    "@supabase/functions-js@2.5.0": {
-      "integrity": "sha512-SXBx6Jvp+MOBekeKFu+G11YLYPeVeGQl23eYyAG9+Ro0pQ1aIP0UZNIBxHKNHqxzR0L0n6gysNr2KT3841NATw==",
+    "@supabase/functions-js@2.75.0": {
+      "integrity": "sha512-18yk07Moj/xtQ28zkqswxDavXC3vbOwt1hDuYM3/7xPnwwpKnsmPyZ7bQ5th4uqiJzQ135t74La9tuaxBR6e7w==",
       "dependencies": [
         "@supabase/node-fetch"
       ]
@@ -456,14 +461,14 @@
         "whatwg-url"
       ]
     },
-    "@supabase/postgrest-js@1.21.4": {
-      "integrity": "sha512-TxZCIjxk6/dP9abAi89VQbWWMBbybpGWyvmIzTd79OeravM13OjR/YEYeyUOPcM1C3QyvXkvPZhUfItvmhY1IQ==",
+    "@supabase/postgrest-js@2.75.0": {
+      "integrity": "sha512-YfBz4W/z7eYCFyuvHhfjOTTzRrQIvsMG2bVwJAKEVVUqGdzqfvyidXssLBG0Fqlql1zJFgtsPpK1n4meHrI7tg==",
       "dependencies": [
         "@supabase/node-fetch"
       ]
     },
-    "@supabase/realtime-js@2.15.5": {
-      "integrity": "sha512-/Rs5Vqu9jejRD8ZeuaWXebdkH+J7V6VySbCZ/zQM93Ta5y3mAmocjioa/nzlB6qvFmyylUgKVS1KpE212t30OA==",
+    "@supabase/realtime-js@2.75.0": {
+      "integrity": "sha512-B4Xxsf2NHd5cEnM6MGswOSPSsZKljkYXpvzKKmNxoUmNQOfB7D8HOa6NwHcUBSlxcjV+vIrYKcYXtavGJqeGrw==",
       "dependencies": [
         "@supabase/node-fetch",
         "@types/phoenix",
@@ -471,10 +476,21 @@
         "ws"
       ]
     },
-    "@supabase/storage-js@2.12.2": {
-      "integrity": "sha512-SiySHxi3q7gia7NBYpsYRu8gyI0NhFwSORMxbZIxJ/zAVkN6QpwDRan158CJ+UdzD4WB/rQMAGRqIJQP+7ccAQ==",
+    "@supabase/storage-js@2.75.0": {
+      "integrity": "sha512-wpJMYdfFDckDiHQaTpK+Ib14N/O2o0AAWWhguKvmmMurB6Unx17GGmYp5rrrqCTf8S1qq4IfIxTXxS4hzrUySg==",
       "dependencies": [
         "@supabase/node-fetch"
+      ]
+    },
+    "@supabase/supabase-js@2.75.0": {
+      "integrity": "sha512-8UN/vATSgS2JFuJlMVr51L3eUDz+j1m7Ww63wlvHLKULzCDaVWYzvacCjBTLW/lX/vedI2LBI4Vg+01G9ufsJQ==",
+      "dependencies": [
+        "@supabase/auth-js",
+        "@supabase/functions-js",
+        "@supabase/node-fetch",
+        "@supabase/postgrest-js",
+        "@supabase/realtime-js",
+        "@supabase/storage-js"
       ]
     },
     "@types/babel__core@7.20.5": {
@@ -780,7 +796,10 @@
   },
   "workspace": {
     "dependencies": [
-      "jsr:@supabase/supabase-js@^2.58.0",
+      "jsr:@std/assert@^1.0.15",
+      "jsr:@std/random@~0.1.3",
+      "npm:@deno/vite-plugin@^1.0.5",
+      "npm:@supabase/supabase-js@^2.58.0",
       "npm:@types/react@^19.2.2",
       "npm:@vitejs/plugin-react@^5.0.4",
       "npm:esbuild@~0.25.10",
