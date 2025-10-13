@@ -21,7 +21,7 @@ export type Database = {
 					breed: string
 					created_at: string
 					image_url: string
-					raiting: number
+					rating: number
 					updated_at: string
 					vote_count: number
 				}
@@ -29,7 +29,7 @@ export type Database = {
 					breed: string
 					created_at?: string
 					image_url: string
-					raiting?: number
+					rating?: number
 					updated_at?: string
 					vote_count?: number
 				}
@@ -37,7 +37,7 @@ export type Database = {
 					breed?: string
 					created_at?: string
 					image_url?: string
-					raiting?: number
+					rating?: number
 					updated_at?: string
 					vote_count?: number
 				}
