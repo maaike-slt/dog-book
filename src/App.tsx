@@ -24,10 +24,11 @@ function App(): JSX.Element {
 	return (
 		<>
 			<div className="main-container">
-				<div className="dog-image">
+				<div className="main-title">
+					choose your favorite!
 				</div>
-				<div className="dog-image">
-				</div>
+				<button type="button" className="dog-image" />
+				<button type="button" className="dog-image" />
 			</div>
 
 			<br />
