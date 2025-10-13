@@ -21,22 +21,33 @@ function App(): JSX.Element {
 		setDogVote(res)
 	}
 
+	if (dogVote.length !== 2) {
+		// TODO: better loading ui
+		return <div>loading...</div>
+	}
+
 	return (
 		<>
 			<div className="main-container">
 				<div className="main-title">
 					choose your favorite!
 				</div>
-				<button type="button" className="dog-image" />
-				<button type="button" className="dog-image" />
-			</div>
 
-			<br />
-			{dogVote.map((url, index) => (
-				<div key={index}>
-					<img src={url} alt={`Dog ${index + 1}`} width="300" />
-				</div>
-			))}
+				<button type="button" className="dog-button">
+					<img
+						src={dogVote[0]}
+						alt="Dog 1"
+						className="dog-image"
+					/>
+				</button>
+				<button type="button" className="dog-button">
+					<img
+						src={dogVote[1]}
+						alt="Dog 2"
+						className="dog-image"
+					/>
+				</button>
+			</div>
 		</>
 	)
 }

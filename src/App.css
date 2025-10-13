@@ -8,16 +8,37 @@
 	align-items: center;
 }
 
-.dog-image {
-	background-color: maroon;
-	height: 60vh;
-	width: 60vh;
-}
-
 .main-title {
 	background-color: lightblue;
 	font-size: 3rem;
 	font-style: inherit;
 	position: absolute;
 	top: 0;
+}
+
+.dog-button {
+	border-radius: 1rem;
+	border: none;
+	padding: 0;
+	padding-block: none !important;
+	padding-inline: none !important;
+	margin: 0;
+	cursor: pointer;
+	box-shadow: transparent 0px 0px 1rem;
+	transition: box-shadow 400ms, transform 100ms;
+}
+.dog-button:hover {
+	box-shadow: #646cff 0px 0px 1rem;
+}
+.dog-button:active {
+	box-shadow: #535bf2 0px 0px 1rem;
+	transform: scale(0.98);
+}
+
+.dog-image {
+	background-color: maroon;
+	max-width: min(40vw, 60vh);
+	border-radius: 1rem;
+	margin: 0;
+	display: block;
 }
