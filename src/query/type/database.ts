@@ -45,7 +45,18 @@ export type Database = {
 			}
 		}
 		Views: {
-			[_ in never]: never
+			random_dog_image_urls: {
+				Row: {
+					image_url: string | null
+				}
+				Insert: {
+					image_url?: string | null
+				}
+				Update: {
+					image_url?: string | null
+				}
+				Relationships: []
+			}
 		}
 		Functions: {
 			[_ in never]: never

@@ -105,14 +105,13 @@ async function getRandomDogImageUrlFromDb(
 	excludeUrls: string[],
 ): Promise<string | null> {
 	const { data, error } = await supabase
-		.from("dog_history")
+		.from("random_dog_image_urls")
 		.select("imageUrl:image_url")
 		.not(
 			"image_url",
 			"in",
 			`(${excludeUrls.map((u) => `'${u}'`).join(",")})`,
 		)
-		.order("RANDOM()")
 		.limit(1)
 		.single()
 	if (error) {
