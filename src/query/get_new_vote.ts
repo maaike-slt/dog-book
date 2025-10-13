@@ -24,7 +24,7 @@ export default async function getNewVote(): Promise<string[]> {
 
 		if (!fetchNew) {
 			const randomDogImageUrl = await getRandomDogImageUrlFromDb(
-				res.map((d) => d.imageUrl),
+				res.at(0)?.imageUrl ?? null,
 			)
 			if (randomDogImageUrl) {
 				res.push({ imageUrl: randomDogImageUrl, voteCount: 0 })
@@ -102,16 +102,12 @@ async function getNewDogFromApi(): Promise<string | null> {
 }
 
 async function getRandomDogImageUrlFromDb(
-	excludeUrls: string[],
+	excludeUrl: string | null,
 ): Promise<string | null> {
 	const { data, error } = await supabase
 		.from("random_dog_image_urls")
 		.select("imageUrl:image_url")
-		.not(
-			"image_url",
-			"in",
-			`(${excludeUrls.map((u) => `'${u}'`).join(",")})`,
-		)
+		.not("image_url", "eq", excludeUrl ?? "")
 		.limit(1)
 		.single()
 	if (error) {

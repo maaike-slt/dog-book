@@ -3,7 +3,7 @@ import "./App.css"
 import getNewVote from "./query/get_new_vote.ts"
 
 function App(): JSX.Element {
-	const [dogVote, setDogVote] = useState<unknown[]>([])
+	const [dogVote, setDogVote] = useState<string[]>([])
 
 	useEffect(() => {
 		handleGetNewVote()
@@ -12,16 +12,31 @@ function App(): JSX.Element {
 	async function handleGetNewVote(): Promise<void> {
 		const res = await getNewVote()
 
-		console.debug({ res })
+		if (res.length !== 2) {
+			// deno-lint-ignore no-console
+			console.error("Failed to get two dog images")
+			return
+		}
+
+		setDogVote(res)
 	}
 
 	return (
-		<div className="main-container">
-			<div className="dog-image">
+		<>
+			<div className="main-container">
+				<div className="dog-image">
+				</div>
+				<div className="dog-image">
+				</div>
 			</div>
-			<div className="dog-image">
-			</div>
-		</div>
+
+			<br />
+			{dogVote.map((url, index) => (
+				<div key={index}>
+					<img src={url} alt={`Dog ${index + 1}`} width="300" />
+				</div>
+			))}
+		</>
 	)
 }
 
