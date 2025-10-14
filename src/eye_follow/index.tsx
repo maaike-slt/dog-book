@@ -1,4 +1,5 @@
-import React from "react"
+import React, { useMemo } from "react"
+import useMousePosition from "../hook/useMousePosition.tsx"
 
 const BASE = {
 	x: 1,
@@ -51,6 +52,25 @@ const EyeFollow: React.FC = () => {
 				style={STYLE.img}
 			/>
 
+			<Eyes />
+		</>
+	)
+}
+
+const Eyes: React.FC = () => {
+	const fontSize = useMemo(() => {
+		return parseFloat(
+			getComputedStyle(document.documentElement).fontSize,
+		)
+	}, [])
+	const { x, y } = useMousePosition()
+	const w = globalThis.window.innerWidth
+	const h = globalThis.window.innerHeight
+
+	console.debug({ x, y, fontSize, w, h })
+
+	return (
+		<>
 			<svg style={STYLE.eye.left}>
 				<circle cx="50%" cy="50%" r="27%" fill="white" />
 			</svg>
