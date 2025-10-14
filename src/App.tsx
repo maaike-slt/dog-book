@@ -1,5 +1,6 @@
 import { type JSX, useEffect, useState } from "react"
 import "./App.css"
+import EyeFollow from "./eye_follow/index.tsx"
 import getNewVote from "./query/get_new_vote.ts"
 
 function App(): JSX.Element {
@@ -48,6 +49,8 @@ function App(): JSX.Element {
 					/>
 				</button>
 			</div>
+
+			<EyeFollow />
 		</>
 	)
 }
