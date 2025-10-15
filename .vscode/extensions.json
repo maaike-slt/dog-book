@@ -1,6 +1,7 @@
 {
 	"recommendations": [
 		"denoland.vscode-deno",
-		"tekumara.typos-vscode"
+		"tekumara.typos-vscode",
+		"biomejs.biome"
 	]
 }
