@@ -1,4 +1,5 @@
 import { randomBetween } from "@std/random"
+import { DateTime } from "luxon"
 import getBreedFromImageUrl from "./get_breed.ts"
 import { supabase } from "./index.ts"
 
@@ -56,6 +57,10 @@ async function getLastTwoDog() {
 	const { data: dogData, error } = await supabase
 		.from("dog_history")
 		.select("voteCount:vote_count, imageUrl:image_url")
+		.lt(
+			"updated_at",
+			DateTime.utc().minus({ hour: 1 }).toISO(),
+		)
 		.order("vote_count", { ascending: true })
 		.order("updated_at", { ascending: true })
 		.limit(2)
