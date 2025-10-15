@@ -1,8 +1,11 @@
 import { randomBetween } from "@std/random"
+import { DateTime } from "luxon"
 import getBreedFromImageUrl from "./get_breed.ts"
 import { supabase } from "./index.ts"
 
 const dogApiUrl = "https://dog.ceo/api/breeds/image/random"
+
+const DOG_QUERY_TIME_THRESHOLD_MINUTES = 10
 
 export default async function getNewVote(): Promise<string[]> {
 	const [dogData, topDogVoteCount] = await Promise.all([
@@ -56,6 +59,10 @@ async function getLastTwoDog() {
 	const { data: dogData, error } = await supabase
 		.from("dog_history")
 		.select("voteCount:vote_count, imageUrl:image_url")
+		.or(`updated_at.lt.${
+			DateTime.utc().minus({ minutes: DOG_QUERY_TIME_THRESHOLD_MINUTES })
+				.toISO()
+		},vote_count.eq.0`)
 		.order("vote_count", { ascending: true })
 		.order("updated_at", { ascending: true })
 		.limit(2)
@@ -108,6 +115,10 @@ async function getRandomDogImageUrlFromDb(
 		.from("random_dog_image_urls")
 		.select("imageUrl:image_url")
 		.not("image_url", "eq", excludeUrl ?? "")
+		.or(`updated_at.lt.${
+			DateTime.utc().minus({ minutes: DOG_QUERY_TIME_THRESHOLD_MINUTES })
+				.toISO()
+		},vote_count.eq.0`)
 		.limit(1)
 		.single()
 	if (error) {
