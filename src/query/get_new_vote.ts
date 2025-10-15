@@ -115,10 +115,6 @@ async function getRandomDogImageUrlFromDb(
 		.from("random_dog_image_urls")
 		.select("imageUrl:image_url")
 		.not("image_url", "eq", excludeUrl ?? "")
-		.or(`updated_at.lt.${
-			DateTime.utc().minus({ minutes: DOG_QUERY_TIME_THRESHOLD_MINUTES })
-				.toISO()
-		},vote_count.eq.0`)
 		.limit(1)
 		.single()
 	if (error) {
