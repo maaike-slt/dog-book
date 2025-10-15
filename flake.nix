@@ -19,6 +19,7 @@
         buildInputs = with pkgs; [
           deno
           supabase-cli
+          biome
         ];
       };
     });
