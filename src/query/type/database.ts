@@ -59,7 +59,10 @@ export type Database = {
 			}
 		}
 		Functions: {
-			[_ in never]: never
+			cast_vote: {
+				Args: { down_dog_url: string; up_dog_url: string }
+				Returns: undefined
+			}
 		}
 		Enums: {
 			[_ in never]: never
