@@ -19,7 +19,7 @@ export default async function getNewVote(): Promise<string[]> {
 		const lastDog = dogData.at(0)
 		const fetchNew = !lastDog || topDogVoteCount === null ||
 			(topDogVoteCount > 0
-				? (lastDog.voteCount / topDogVoteCount) < randomBetween(0, 1)
+				? (lastDog.voteCount / topDogVoteCount) > randomBetween(0, 1)
 				: false)
 
 		if (!fetchNew) {
