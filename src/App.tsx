@@ -1,6 +1,7 @@
 import { type JSX, useEffect, useState } from "react"
 import "./App.css"
 import EyeFollow from "./eye_follow/index.tsx"
+import castVote from "./query/cast_vote.ts"
 import getNewVote from "./query/get_new_vote.ts"
 
 function App(): JSX.Element {
@@ -22,6 +23,14 @@ function App(): JSX.Element {
 		setDogVote(res)
 	}
 
+	async function handleCastVote(
+		upDogUrl: string,
+		downDogUrl: string,
+	): Promise<void> {
+		await castVote(upDogUrl, downDogUrl)
+		await handleGetNewVote()
+	}
+
 	if (dogVote.length !== 2) {
 		// TODO: better loading ui
 		return <div>loading...</div>
@@ -34,14 +43,22 @@ function App(): JSX.Element {
 					choose your favorite!
 				</div>
 
-				<button type="button" className="dog-button">
+				<button
+					type="button"
+					className="dog-button"
+					onClick={() => handleCastVote(dogVote[0], dogVote[1])}
+				>
 					<img
 						src={dogVote[0]}
 						alt="Dog 1"
 						className="dog-image"
 					/>
 				</button>
-				<button type="button" className="dog-button">
+				<button
+					type="button"
+					className="dog-button"
+					onClick={() => handleCastVote(dogVote[1], dogVote[0])}
+				>
 					<img
 						src={dogVote[1]}
 						alt="Dog 2"
