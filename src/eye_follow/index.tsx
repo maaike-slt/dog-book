@@ -80,8 +80,10 @@ const Eyes: React.FC = () => {
 		)
 	}, [])
 
+	const w = globalThis.window.innerWidth
+	const h = globalThis.window.innerHeight
+
 	const eyeCenterPosPx = useMemo(() => {
-		const h = globalThis.window.innerHeight
 		return {
 			left: {
 				x: (EYE_POS_OFFSET.left.x + EYE_SIZE) * fontSize - 0.5,
@@ -92,7 +94,7 @@ const Eyes: React.FC = () => {
 				y: h - ((EYE_POS_OFFSET.right.y + EYE_SIZE) * fontSize) - 0.5,
 			},
 		}
-	}, [fontSize, globalThis.window.innerHeight])
+	}, [fontSize, h])
 
 	const mousePos = useMousePosition()
 	const relativeMousePos = {
@@ -116,9 +118,6 @@ const Eyes: React.FC = () => {
 			y: relativeMousePos.right.y - eyeCenterPosPx.right.y,
 		},
 	}
-
-	const w = globalThis.window.innerWidth
-	const h = globalThis.window.innerHeight
 
 	const maxScreenDist = {
 		left: {
