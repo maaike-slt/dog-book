@@ -1,32 +1,32 @@
 name: gh-pages
 
 on:
-  push:
-    tags:
-      - "v[0-9]+.[0-9]+.[0-9]+"
+    push:
+        tags:
+            - "v[0-9]+.[0-9]+.[0-9]+"
 
 jobs:
-  run:
-    name: deploy
+    run:
+        name: deploy
 
-    runs-on: ubuntu-latest
+        runs-on: ubuntu-latest
 
-    timeout-minutes: 6
+        timeout-minutes: 6
 
-    steps:
-      - uses: actions/checkout@v5
-      - uses: denoland/setup-deno@v2
-        with:
-          deno-version: v2.x
+        steps:
+            - uses: actions/checkout@v5
+            - uses: denoland/setup-deno@v2
+              with:
+                  deno-version: v2.x
 
-      - name: create .env
-        run: echo "$DOTENV" > .env
-        env:
-          DOTENV: ${{ secrets.DOTENV }}
+            - name: create .env
+              run: echo "$DOTENV" > .env
+              env:
+                  DOTENV: ${{ secrets.DOTENV }}
 
-      - name: deploy to gh-pages
-        run: |
-          git remote set-url origin "https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
-          deno task deploy --user 'github-actions-bot <support+actions@github.com>'
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            - name: deploy to gh-pages
+              run: |
+                  git remote set-url origin "https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+                  deno task deploy --user 'github-actions-bot <support+actions@github.com>'
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
