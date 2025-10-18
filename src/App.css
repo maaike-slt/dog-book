@@ -20,17 +20,19 @@
 }
 
 .dog-button {
+	background-color: transparent;
 	border-radius: 1rem;
 	border: none;
 	padding: 0;
-	padding-block: none !important;
-	padding-inline: none !important;
+	padding-block: none;
+	padding-inline: none;
 	margin: 0;
 	cursor: pointer;
 	box-shadow: transparent 0px 0px 1rem;
-	transition: box-shadow 400ms, transform 100ms;
+	transition: box-shadow 400ms, background-color 400ms, transform 100ms;
 }
 .dog-button:hover {
+	background-color: #646cff;
 	box-shadow: #646cff 0px 0px 1rem;
 }
 .dog-button:active {
@@ -39,8 +41,12 @@
 }
 
 .dog-image {
-	background-color: maroon;
-	max-width: min(40vw, 60vh);
+	background-color: transparent;
+	object-fit: contain;
+	width: 25vw;
+	height: auto;
+	max-width: 40vw;
+	max-height: 60vh;
 	border-radius: 1rem;
 	margin: 0;
 	display: block;
