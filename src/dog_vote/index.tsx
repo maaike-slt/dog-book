@@ -2,7 +2,7 @@ import type React from "react"
 import { useEffect, useState } from "react"
 import castVote from "../query/cast_vote.ts"
 import getNewVote from "../query/get_new_vote.ts"
-import "./index.css"
+import DogVoteBtn from "./DogVoteBtn.tsx"
 
 const DogVote: React.FC = () => {
 	const [dogVote, setDogVote] = useState<string[]>([])
@@ -43,38 +43,16 @@ const DogVote: React.FC = () => {
 
 	return (
 		<>
-			<button
-				type="button"
-				className="dog-button"
+			<DogVoteBtn
+				dogUrl={dogVote[0]}
 				onClick={() => handleCastVote(0)}
-			>
-				<img
-					src={dogVote[0]}
-					alt="Dog 1"
-					className={`dog-image` +
-						(votedIndex === null
-							? ""
-							: (votedIndex === 0
-								? " dog-image-up-vote"
-								: " dog-image-down-vote"))}
-				/>
-			</button>
-			<button
-				type="button"
-				className="dog-button"
+				isVoted={votedIndex === null ? null : (votedIndex === 0)}
+			/>
+			<DogVoteBtn
+				dogUrl={dogVote[1]}
 				onClick={() => handleCastVote(1)}
-			>
-				<img
-					src={dogVote[1]}
-					alt="Dog 2"
-					className={`dog-image` +
-						(votedIndex === null
-							? ""
-							: (votedIndex === 1
-								? " dog-image-up-vote"
-								: " dog-image-down-vote"))}
-				/>
-			</button>
+				isVoted={votedIndex === null ? null : (votedIndex === 1)}
+			/>
 		</>
 	)
 }
