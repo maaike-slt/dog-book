@@ -15,4 +15,5 @@ deno run -A npm:gh-pages \
 	--src='{index.html,*.png,assets/*.{js,css}}' \
 	--remove='{*,.*,.*/*,.*/**/*}' \
 	--branch=gh-pages \
-	--message='[skip ci] deploy gh-pages'
+	--message='[skip ci] deploy gh-pages' \
+	$@
