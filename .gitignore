@@ -4,6 +4,10 @@
 # vite
 .vite/
 
+# deno
+## using deno.jsonc exclusively
+package.json
+
 # Logs
 logs
 *.log

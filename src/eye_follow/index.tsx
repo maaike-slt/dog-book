@@ -1,4 +1,5 @@
-import React, { useMemo } from "react"
+import type React from "react"
+import { useMemo } from "react"
 import useMousePosition from "../hook/useMousePosition.tsx"
 
 const BASE = {
@@ -63,7 +64,7 @@ const EyeFollow: React.FC = () => {
 	return (
 		<>
 			<img
-				src="/dog_eye_follow.png"
+				src="/dog-book/dog_eye_follow.png"
 				alt="Dog Eye Follow"
 				style={STYLE.img}
 			/>
