@@ -30,7 +30,12 @@ const EYE_POS_OFFSET = {
 		x: BASE.x + (358.5 / IMG_PX_SIZE * BASE.size),
 		y: BASE.y + (458.5 / IMG_PX_SIZE * BASE.size),
 	},
-}
+} as const
+
+const EYE_SOCKET_RADIUS_OFFSET_PX = {
+	left: 1,
+	right: 2,
+} as const
 
 const STYLE = {
 	img: {
@@ -157,14 +162,14 @@ const Eyes: React.FC = () => {
 				innerEyeSocketDist.left.x,
 				innerEyeSocketDist.left.y,
 			),
-			eyeSocketRadius - 1,
+			eyeSocketRadius - EYE_SOCKET_RADIUS_OFFSET_PX.left,
 		),
 		right: Math.min(
 			Math.hypot(
 				innerEyeSocketDist.right.x,
 				innerEyeSocketDist.right.y,
 			),
-			eyeSocketRadius - 2,
+			eyeSocketRadius - EYE_SOCKET_RADIUS_OFFSET_PX.right,
 		),
 	}
 
