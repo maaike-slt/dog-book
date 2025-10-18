@@ -13,6 +13,6 @@ fi
 deno run -A npm:gh-pages \
 	--dist="$DIST_DIR" \
 	--src='{index.html,*.png,assets/*.{js,css}}' \
-	--remove='{*,.*,.*/*,.*/**/*}' \
+	--remove='{*,*/*,*/**/*,.*,.*/*,.*/**/*}' \
 	--branch=gh-pages \
 	--message='[skip ci] deploy gh-pages' "$@"
