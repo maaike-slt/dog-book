@@ -8,7 +8,7 @@ on:
 
 jobs:
     run:
-        name: deno fmt
+        name: biome lint
 
         runs-on: ubuntu-latest
 
@@ -21,4 +21,4 @@ jobs:
                   version: latest
 
             - name: lint
-              run: biome lint
+              run: biome lint --error-on-warnings
