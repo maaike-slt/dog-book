@@ -4,7 +4,7 @@
 		"build": "deno run -A npm:vite build --outDir=dist",
 		"biome": "deno run -A npm:@biomejs/biome",
 		"deploy": {
-			"command": "deno run -A npm:gh-pages --dist=dist --src='{index.html,*.png,assets/*.{js,css}}' --remove='{*,.*,.*/*,.*/**/*}' --branch=tmp --message='[skip ci] deploy gh-pages'",
+			"command": "./deploy.sh",
 			"dependencies": ["build"]
 		}
 	},
