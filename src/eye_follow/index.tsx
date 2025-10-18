@@ -74,10 +74,9 @@ const Eyes: React.FC = () => {
 			getComputedStyle(document.documentElement).fontSize,
 		)
 	}, [])
-	const { x, y } = useMousePosition()
-	const w = globalThis.window.innerWidth
-	const h = globalThis.window.innerHeight
+
 	const eyeCenterPosPx = useMemo(() => {
+		const h = globalThis.window.innerHeight
 		return {
 			left: {
 				x: (EYE_POS_OFFSET.left.x + EYE_SIZE) * fontSize - 0.5,
@@ -88,17 +87,89 @@ const Eyes: React.FC = () => {
 				y: h - ((EYE_POS_OFFSET.right.y + EYE_SIZE) * fontSize) - 0.5,
 			},
 		}
-	}, [fontSize, w, h])
+	}, [fontSize, globalThis.window.innerHeight])
 
-	console.debug({ x, y, fontSize, w, h })
+	const mousePos = useMousePosition()
+	const relativeMousePos = {
+		left: {
+			x: mousePos.x ?? eyeCenterPosPx.left.x,
+			y: mousePos.y ?? eyeCenterPosPx.left.y,
+		},
+		right: {
+			x: mousePos.x ?? eyeCenterPosPx.right.x,
+			y: mousePos.y ?? eyeCenterPosPx.right.y,
+		},
+	}
+
+	const distFromMouse = {
+		left: {
+			x: relativeMousePos.left.x - eyeCenterPosPx.left.x,
+			y: relativeMousePos.left.y - eyeCenterPosPx.left.y,
+		},
+		right: {
+			x: relativeMousePos.right.x - eyeCenterPosPx.right.x,
+			y: relativeMousePos.right.y - eyeCenterPosPx.right.y,
+		},
+	}
+
+	const w = globalThis.window.innerWidth
+	const h = globalThis.window.innerHeight
+
+	const maxScreenDist = {
+		left: {
+			x: distFromMouse.left.x > 0
+				? w - eyeCenterPosPx.left.x
+				: eyeCenterPosPx.left.x,
+			y: distFromMouse.left.y > 0
+				? h - eyeCenterPosPx.left.y
+				: eyeCenterPosPx.left.y,
+		},
+		right: {
+			x: distFromMouse.right.x > 0
+				? w - eyeCenterPosPx.right.x
+				: eyeCenterPosPx.right.x,
+			y: distFromMouse.right.y > 0
+				? h - eyeCenterPosPx.right.y
+				: eyeCenterPosPx.right.y,
+		},
+	}
+
+	const eyeSocketRadius = EYE_SIZE * fontSize
+
+	const translate = {
+		left: {
+			x: (distFromMouse.left.x / maxScreenDist.left.x) *
+				eyeSocketRadius,
+			y: (distFromMouse.left.y / maxScreenDist.left.y) *
+				eyeSocketRadius,
+		},
+		right: {
+			x: (distFromMouse.right.x / maxScreenDist.right.x) *
+				eyeSocketRadius,
+			y: (distFromMouse.right.y / maxScreenDist.right.y) *
+				eyeSocketRadius,
+		},
+	}
 
 	return (
 		<>
-			<svg style={STYLE.eye.left}>
+			<svg
+				style={{
+					...STYLE.eye.left,
+					transform:
+						`translate(${translate.left.x}px, ${translate.left.y}px)`,
+				}}
+			>
 				<title>left eye</title>
 				<circle cx="50%" cy="50%" r="27%" fill="white" />
 			</svg>
-			<svg style={STYLE.eye.right}>
+			<svg
+				style={{
+					...STYLE.eye.right,
+					transform:
+						`translate(${translate.right.x}px, ${translate.right.y}px)`,
+				}}
+			>
 				<title>right eye</title>
 				<circle cx="50%" cy="50%" r="25%" fill="white" />
 			</svg>
