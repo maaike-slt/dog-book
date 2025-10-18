@@ -1,0 +1,10 @@
+.main-title {
+	background-color: #535bf280;
+	font-size: 3rem;
+	font-style: inherit;
+	position: absolute;
+	top: 1.5rem;
+	border-radius: 1rem;
+	box-shadow: #535bf2 0 0 1.5rem;
+	padding: 0 1rem 0.5rem;
+}
