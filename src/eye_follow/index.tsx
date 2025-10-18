@@ -136,7 +136,7 @@ const Eyes: React.FC = () => {
 
 	const eyeSocketRadius = EYE_SIZE * fontSize
 
-	const translate = {
+	const innerEyeSocketDist = {
 		left: {
 			x: (distFromMouse.left.x / maxScreenDist.left.x) *
 				eyeSocketRadius,
@@ -151,26 +151,54 @@ const Eyes: React.FC = () => {
 		},
 	}
 
+	const translate = {
+		left: Math.min(
+			Math.hypot(
+				innerEyeSocketDist.left.x,
+				innerEyeSocketDist.left.y,
+			),
+			eyeSocketRadius - 1,
+		),
+		right: Math.min(
+			Math.hypot(
+				innerEyeSocketDist.right.x,
+				innerEyeSocketDist.right.y,
+			),
+			eyeSocketRadius - 2,
+		),
+	}
+
+	const angle = {
+		left: Math.atan2(
+			distFromMouse.left.y,
+			distFromMouse.left.x,
+		),
+		right: Math.atan2(
+			distFromMouse.right.y,
+			distFromMouse.right.x,
+		),
+	}
+
 	return (
 		<>
 			<svg
 				style={{
 					...STYLE.eye.left,
 					transform:
-						`translate(${translate.left.x}px, ${translate.left.y}px)`,
+						`rotate(${angle.left}rad) translate(${translate.left}px)`,
 				}}
 			>
-				<title>left eye</title>
+				<title>left pupil</title>
 				<circle cx="50%" cy="50%" r="27%" fill="white" />
 			</svg>
 			<svg
 				style={{
 					...STYLE.eye.right,
 					transform:
-						`translate(${translate.right.x}px, ${translate.right.y}px)`,
+						`rotate(${angle.right}rad) translate(${translate.right}px)`,
 				}}
 			>
-				<title>right eye</title>
+				<title>right pupil</title>
 				<circle cx="50%" cy="50%" r="25%" fill="white" />
 			</svg>
 		</>
