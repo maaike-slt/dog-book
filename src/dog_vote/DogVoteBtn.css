@@ -9,6 +9,13 @@
 	cursor: pointer;
 	box-shadow: transparent 0px 0px 1rem;
 	transition: box-shadow 400ms, background-color 400ms, transform 100ms;
+	opacity: 0;
+	animation: fadeIn 500ms forwards 100ms;
+}
+@keyframes fadeIn {
+	to {
+		opacity: 1;
+	}
 }
 .dog-button:hover {
 	background-color: #646cff;

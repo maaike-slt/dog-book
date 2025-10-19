@@ -31,9 +31,9 @@ const DogVote: React.FC = () => {
 		setVotedIndex(index)
 		const castVoteProcess = castVote(dogVote[index], dogVote[1 - index])
 		setTimeout(async () => {
-			setVotedIndex(null)
 			await castVoteProcess
 			await handleGetNewVote()
+			setVotedIndex(null)
 		}, 500)
 	}
 
