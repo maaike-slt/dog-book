@@ -1,4 +1,14 @@
 .loader {
-	width: 5rem;
-	height: 5rem;
+	width: 11rem;
+	height: 11rem;
+	animation: spin 2.5s linear infinite;
+}
+
+@keyframes spin {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
 }

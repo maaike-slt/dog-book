@@ -37,7 +37,7 @@ const DogVote: React.FC = () => {
 		}, 500)
 	}
 
-	if (dogVote.length !== 2 || true) {
+	if (dogVote.length !== 2) {
 		return <Loader />
 	}
 
