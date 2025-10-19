@@ -1,6 +1,6 @@
 import type React from "react"
 import { useEffect, useState } from "react"
-import Loader from "../Loader.tsx"
+import Loader from "../loader/Loader.tsx"
 import castVote from "../query/cast_vote.ts"
 import getNewVote from "../query/get_new_vote.ts"
 import DogVoteBtn from "./DogVoteBtn.tsx"
@@ -37,7 +37,7 @@ const DogVote: React.FC = () => {
 		}, 500)
 	}
 
-	if (dogVote.length !== 2) {
+	if (dogVote.length !== 2 || true) {
 		return <Loader />
 	}
 
