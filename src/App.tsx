@@ -1,8 +1,8 @@
 import type React from "react"
 import "./App.css"
-import DogVote from "./dog_vote/index.tsx"
-import EyeFollow from "./eye_follow/index.tsx"
-import MainTitle from "./main_title/index.tsx"
+import DogVote from "./dog_vote/DogVote.tsx"
+import EyeFollow from "./eye_follow/EyeFollow.tsx"
+import MainTitle from "./main_title/MainTitle.tsx"
 
 const App: React.FC = () => {
 	return (
