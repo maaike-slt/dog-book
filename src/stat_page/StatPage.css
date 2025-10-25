@@ -1,7 +1,21 @@
 .stat-page {
 	position: absolute;
+	top: 0;
 	height: 100vh;
 	width: 100vw;
 	background-color: purple;
 	transform: translate(100vw, 0);
+}
+
+.stat-button {
+	position: absolute;
+	left: -5rem;
+	width: 5rem;
+	height: 2.5rem;
+	top: 5rem;
+	background-color: purple;
+	border: none;
+	font-size: 1.8rem;
+	border-top-left-radius: 0.5rem;
+	border-bottom-left-radius: 0.5rem;
 }

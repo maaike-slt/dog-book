@@ -11,8 +11,9 @@ const App: React.FC = () => {
 			<div className="main-container">
 				<MainTitle />
 				<DogVote />
-				<StatPage />
 			</div>
+
+			<StatPage />
 
 			<EyeFollow />
 		</>
