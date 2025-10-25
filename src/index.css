@@ -1,4 +1,7 @@
 :root {
+	--main-bg-color: rgb(47, 75, 93);
+	--stat-bg-color: purple;
+
 	font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
 	line-height: 1.5;
 	font-weight: 400;

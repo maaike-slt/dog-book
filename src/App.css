@@ -1,5 +1,5 @@
 .main-container {
-	background-color: rgb(47, 75, 93);
+	background-color: var(--main-bg-color);
 	height: 100vh;
 	width: 100vw;
 
