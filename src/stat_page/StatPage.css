@@ -7,6 +7,11 @@
 	transform: translate(100vw, 0);
 }
 
+.stat-page-open {
+	transform: translate(0, 0);
+	transition: transform 600ms ease-in-out;
+}
+
 .stat-button {
 	position: absolute;
 	left: -5rem;
@@ -18,4 +23,12 @@
 	font-size: 1.8rem;
 	border-top-left-radius: 0.5rem;
 	border-bottom-left-radius: 0.5rem;
+}
+.stat-button:hover {
+	cursor: pointer;
+	background-color: violet;
+	transition: background-color 400ms ease;
+}
+.stat-button:focus {
+	outline: none;
 }
