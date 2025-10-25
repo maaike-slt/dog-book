@@ -1,5 +1,6 @@
 import type React from "react"
 import { useState } from "react"
+import NavBtn from "./NavBtn.tsx"
 import "./StatPage.css"
 
 const StatPage: React.FC = () => {
@@ -7,13 +8,11 @@ const StatPage: React.FC = () => {
 	return (
 		<div className={`stat-page ${open ? " stat-page-open" : ""}`}>
 			ola muchachos
-			<button
-				type="button"
-				className="stat-button"
-				onClick={() => setOpen(true)}
-			>
-				stats
-			</button>
+
+			<NavBtn
+				onClickMain={() => setOpen(false)}
+				onClickStat={() => setOpen(true)}
+			/>
 		</div>
 	)
 }

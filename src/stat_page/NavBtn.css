@@ -1,0 +1,36 @@
+.nav-button {
+	position: absolute;
+	width: 5rem;
+	height: 2.5rem;
+	border: none;
+	font-size: 1.8rem;
+}
+.nav-button:hover {
+	cursor: pointer;
+	transition: background-color 400ms ease;
+}
+.nav-button:focus {
+	outline: none;
+}
+
+.stat-button {
+	left: -5rem;
+	top: 5rem;
+	background-color: purple;
+	border-top-left-radius: 0.5rem;
+	border-bottom-left-radius: 0.5rem;
+}
+.nav-button:hover {
+	background-color: violet;
+}
+
+.main-button {
+	left: 0;
+	top: 7.5rem;
+	background-color: green;
+	border-top-right-radius: 0.5rem;
+	border-bottom-right-radius: 0.5rem;
+}
+.main-button:hover {
+	background-color: darkgreen;
+}
