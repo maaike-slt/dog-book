@@ -6,13 +6,13 @@ export default async function getBreedRanking(
 	page: number,
 	pageSize: number,
 ): Promise<string[]> {
-	const ascending = order === RankingOrder.Best
+	const best = order === RankingOrder.Best
 	const { data, error } = await supabase
 		.from("breed_ranking")
 		.select("breed")
-		.order("rank", { ascending })
-		.order("dog_count", { ascending })
-		.order("breed", { ascending })
+		.order("rank", { ascending: !best })
+		.order("dog_count", { ascending: !best })
+		.order("breed", { ascending: best })
 		.range((page - 1) * pageSize, (page * pageSize) - 1)
 
 	if (error) {
