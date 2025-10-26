@@ -45,6 +45,45 @@ export type Database = {
 			}
 		}
 		Views: {
+			breed_ranking: {
+				Row: {
+					breed: string | null
+					dog_count: number | null
+					rank: number | null
+					vote_count: number | null
+				}
+				Relationships: []
+			}
+			dog_ranking: {
+				Row: {
+					breed: string | null
+					created_at: string | null
+					image_url: string | null
+					rank: number | null
+					rating: number | null
+					updated_at: string | null
+					vote_count: number | null
+				}
+				Insert: {
+					breed?: string | null
+					created_at?: string | null
+					image_url?: string | null
+					rank?: never
+					rating?: number | null
+					updated_at?: string | null
+					vote_count?: number | null
+				}
+				Update: {
+					breed?: string | null
+					created_at?: string | null
+					image_url?: string | null
+					rank?: never
+					rating?: number | null
+					updated_at?: string | null
+					vote_count?: number | null
+				}
+				Relationships: []
+			}
 			random_dog_image_urls: {
 				Row: {
 					image_url: string | null
