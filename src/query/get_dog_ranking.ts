@@ -17,7 +17,7 @@ export default async function getDogRanking(
 
 	if (error) {
 		// deno-lint-ignore no-console
-		console.error("error getting total vote count:", error)
+		console.error("error getting dog ranking:", error)
 		return []
 	}
 
