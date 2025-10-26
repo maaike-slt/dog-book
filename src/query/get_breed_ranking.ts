@@ -17,7 +17,7 @@ export default async function getBreedRanking(
 
 	if (error) {
 		// deno-lint-ignore no-console
-		console.error("error getting total vote count:", error)
+		console.error("error getting breed ranking:", error)
 		return []
 	}
 
