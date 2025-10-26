@@ -9,8 +9,6 @@ const StatPage: React.FC = () => {
 
 	return (
 		<div className={`stat-page ${open ? " stat-page-open" : ""}`}>
-			ola muchachos
-
 			<TotalVoteCount fetch={open} />
 
 			<NavBtn

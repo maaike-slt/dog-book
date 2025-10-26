@@ -57,6 +57,12 @@ export type Database = {
 				}
 				Relationships: []
 			}
+			total_vote_count: {
+				Row: {
+					total_vote_count: number | null
+				}
+				Relationships: []
+			}
 		}
 		Functions: {
 			cast_vote: {
