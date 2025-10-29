@@ -7,6 +7,9 @@
 	background-color: var(--stat-bg-color);
 	transform: translate(0, 0);
 	transition: transform 600ms ease-in-out;
+
+	display: flex;
+	flex-direction: column;
 }
 
 .stat-page-open {

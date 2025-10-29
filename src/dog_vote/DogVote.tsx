@@ -2,7 +2,7 @@ import type React from "react"
 import { useEffect, useState } from "react"
 import Loader from "../loader/Loader.tsx"
 import castVote from "../query/cast_vote.ts"
-import getNewVote from "../query/get_new_vote.ts"
+import getNewVote from "../query/get_new_vote/get_new_vote.ts"
 import DogVoteBtn from "./DogVoteBtn.tsx"
 
 const DogVote: React.FC = () => {
