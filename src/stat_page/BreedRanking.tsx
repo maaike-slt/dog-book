@@ -34,7 +34,7 @@ const BreedRanking: React.FC<BreedRankingProps> = ({ type, fetch }) => {
 	}
 
 	return (
-		<div>
+		<div className="breed-ranking">
 			{breedRanking.map((breed) => <div key={breed}>{breed}</div>)}
 
 			{/* TODO: add pagination controls */}

@@ -1,7 +1,7 @@
 import type React from "react"
 import { useEffect, useState } from "react"
 import getDogRanking from "../query/get_dog_ranking.ts"
-import type { RankingOrder } from "../query/type/ranking_order.ts"
+import { RankingOrder } from "../query/type/ranking_order.ts"
 
 interface DogRankingProps {
 	type: RankingOrder
@@ -33,8 +33,11 @@ const DogRanking: React.FC<DogRankingProps> = ({ type, fetch }) => {
 		return <>loading...</>
 	}
 
+	const containerClassName = "dog-ranking " +
+		(type === RankingOrder.Best ? "dog-ranking-best" : "dog-ranking-worst")
+
 	return (
-		<div>
+		<div className={containerClassName}>
 			{dogRanking.map((dog) => (
 				<img
 					key={dog}

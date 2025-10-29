@@ -15,3 +15,23 @@
 .stat-page-open {
 	transform: translate(-100vw, 0);
 }
+
+.dog-ranking {
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+}
+
+.dog-ranking-best {
+	left: 0;
+}
+
+.dog-ranking-worst {
+	right: 0;
+}
+
+.breed-ranking {
+	position: relative;
+	font-size: 2rem
+	font-type: 'Arial', sans-serif;
+}
